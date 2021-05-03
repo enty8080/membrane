@@ -45,8 +45,12 @@ std::vector<std::string> membrane_listen()
 
 int membrane_execute(std::vector<std::string> commands)
 {
-    if (cmds.count(commands[0]) <= 0)
-        return -1;
-    cmds[commands[0]].doit();
+    if (passCmds.count(commands[0]) > 0) {
+        passCmds[commands[0]](commands);
+        return 0;
+    } else if (nopassCmds.count(command[0]) > 0) {
+        nopassCmds[commands[0]]();
+        return 0;
+    }
     return 0;
 }
