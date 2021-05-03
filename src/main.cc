@@ -21,13 +21,16 @@ void repeater()
 
 int main(int argc, char *argv[])
 {
-    if (argc == 2) {
-        std::string data = uncrypto(argv[1]);
+    if (argc > 1) {
+        if (argc == 2) {
+            std::string host = "127.0.0.1";
+            int port = std::stoi(uncrypto(argv[2]));
+        } else if (argc >= 3) {
+            std::string host = uncrypto(argv[1]);
+            int port = std::stoi(uncrypto(argv[2]));
+        }
 
-        std::string host = data.substr(0, data.find(":"));
-        std::string port = data.substr(1, data.find(":"));
-
-        int sock = membrane_connect(host, std::stoi(port));
+        int sock = membrane_connect(host, port);
         if (sock >= 0)
             repeater();
         else
