@@ -23,7 +23,7 @@ void repeater()
 
 int main(int argc, char *argv[])
 {
-    console_log_information("membrane _/(o_0)\_ v0.0.1");
+    console_log_information("membrane ¯\\(o_0)/¯ v0.0.1");
     if (argc == 3) {
         int sock = membrane_connect(argv[1], argv[2]);
         if (sock >= 0)
