@@ -6,11 +6,11 @@
 void exec(std::vector<std::string>);
 void shell();
 
-std::map<std::string, std::function<void(std::vector<std::string>)>> passCmds = {
+static std::map<std::string, std::function<void(std::vector<std::string>)>> passCmds = {
     {"exec", exec}
 };
 
-std::map<std::string, std::function<void()>> nopassCmds = {
+static std::map<std::string, std::function<void()>> nopassCmds = {
     {"shell", shell}
 };
 
