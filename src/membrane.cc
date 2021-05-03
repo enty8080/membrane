@@ -1,4 +1,3 @@
-#include "membrane.hpp"
 #include "commands.hpp"
 
 int membrane_connect(char *host, char *port)
