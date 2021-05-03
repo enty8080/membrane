@@ -2,13 +2,15 @@
 
 class Commands {
 public:
-    void doit(std::vector<std::string> commands)
+    static void doit(std::vector<std::string> commands)
     {
         std::cout << "..all systems go.." << std::endl;
+        return commands;
     }
 
-    std::map<std::string,std::function<void(std::vector<std::string>)>> commandsMap =
-    {
+    std::map<std::string, std::function<
+        std::vector<std::string>(std::vector<std::string>)
+    >> commandsMap = {
         {"doit", doit}
     };
 };
@@ -64,6 +66,6 @@ int membrane_execute(std::vector<std::string> commands)
     Commands commander;
     if (commander.commandsMap.count(commands[0]) <= 0)
         return -1;
-    commander.commandsMap[commands[0]](commands);
+    commands = commander.commandsMap[commands[0]](commands);
     return 0;
 }
