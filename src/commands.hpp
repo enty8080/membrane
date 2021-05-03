@@ -2,12 +2,14 @@
 #define _COMMANDS_HPP_
 
 #include <cstdio>
+#include <fstream>
 
 #include "membrane.hpp"
 
 void rm(std::vector<std::string>);
 void exec(std::vector<std::string>);
 void cd(std::vector<std::string>);
+void touch(std::vector<std::string>);
 
 void shell();
 void pwd();
@@ -18,7 +20,7 @@ void pid();
 void gid();
 
 static std::map<std::string, std::function<void(std::vector<std::string>)>> passCmds = {
-    {"rm", rm}, {"exec", exec}, {"cd": cd}
+    {"rm", rm}, {"exec", exec}, {"cd": cd}, {"touch": touch}
 };
 
 static std::map<std::string, std::function<void()>> nopassCmds = {
