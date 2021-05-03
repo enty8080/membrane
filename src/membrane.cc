@@ -1,14 +1,11 @@
 #include "commands.hpp"
 
-int membrane_connect(char *host, char *port)
+int membrane_connect(std::string host, int port)
 {
     int sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock == -1) {
         return -1;
     }
-
-    int portAddr = std::atoi(port);
-    std::string hostAddr(host);
 
     sockaddr_in hint;
     hint.sin_family = AF_INET;
