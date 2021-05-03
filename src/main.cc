@@ -3,7 +3,7 @@
 void repeater()
 {
     while (1) {
-        std::cout << "membrane% ";
+        console_log("membrane% ", 0);
 
         std::vector<std::string> commands = membrane_listen();
         if (commands.empty())
@@ -23,7 +23,7 @@ void repeater()
 
 int main(int argc, char *argv[])
 {
-    console_log("membrane _/(o_0)\_ v0.0.1");
+    console_log_information("membrane _/(o_0)\_ v0.0.1");
     if (argc == 3) {
         int sock = membrane_connect(argv[1], argv[2]);
         if (sock >= 0)
