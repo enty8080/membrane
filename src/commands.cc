@@ -1,5 +1,19 @@
 #include "commands.hpp"
 
+void rm(std::vector<std::string> commands)
+{
+    if (commands.size() == 2)
+        if (std::remove(commands[1].c_str()) < 0)
+            console_log_error("No such file!");
+    else if (commands.size() > 2 && (commands[1] == '-d' || commands[1] == '--directory'))
+        if (rmdir(commands[2].c_str()) < 0)
+            console_log_error("No such directory!");
+    else {
+        console_log("Usage: rm [options] <path>\n");
+        console_log("  -d, --directory  Remove specified directory instead of file.\n");
+    }
+}
+
 void exec(std::vector<std::string> commands)
 {
     if (commands.size() > 1)
