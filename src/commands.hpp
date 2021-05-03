@@ -6,28 +6,29 @@
 
 #include "membrane.hpp"
 
-void _rm(std::vector<std::string>);
-void _rmdir(std::vector<std::string>);
-void _mkdir(std::vector<std::string>);
-void _exec(std::vector<std::string>);
-void _cd(std::vector<std::string>);
-void _touch(std::vector<std::string>);
+void cmd_rm(std::vector<std::string>);
+void cmd_rmdir(std::vector<std::string>);
+void cmd_mkdir(std::vector<std::string>);
+void cmd_exec(std::vector<std::string>);
+void cmd_cd(std::vector<std::string>);
+void cmd_touch(std::vector<std::string>);
 
-void _shell();
-void _pwd();
-void _whoami();
-void _hostname();
-void _getuid();
-void _getpid();
-void _getgid();
+void cmd_shell();
+void cmd_pwd();
+void cmd_whoami();
+void cmd_hostname();
+void cmd_getuid();
+void cmd_getpid();
+void cmd_getgid();
 
 static std::map<std::string, std::function<void(std::vector<std::string>)>> passCmds = {
-    {"rm", _rm}, {"rmdir", _rmdir}, {"mkdir", _mkdir}, {"exec", _exec}, {"cd": _cd}, {"touch": _touch}
+    {"rm", cmd_rm}, {"rmdir", cmd_rmdir}, {"mkdir", cmd_mkdir}, {"exec",cmd _exec},
+    {"cd": cmd_cd}, {"touch": cmd_touch}
 };
 
 static std::map<std::string, std::function<void()>> nopassCmds = {
-    {"shell", _shell}, {"pwd", _pwd}, {"whoami", _whoami}, {"hostname", _hostname},
-    {"getuid", _getuid}, {"getpid", _getpid}, {"getgid", _getgid}
+    {"shell", cmd_shell}, {"pwd", cmd_pwd}, {"whoami", cmd_whoami}, {"hostname", cmd_hostname},
+    {"getuid", cmd_getuid}, {"getpid", cmd_getpid}, {"getgid", cmd_getgid}
 };
 
 #endif // _COMMANDS_HPP_
