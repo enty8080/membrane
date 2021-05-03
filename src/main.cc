@@ -9,10 +9,14 @@ void repeater()
         if (commands.empty())
             continue;
         else {
-            if (commands[0] == "exit")
+            if (commands[0] == "exit" || commands[0] == "quit")
                 break;
-            if (membrane_execute(commands) < 0)
+
+            int error_code = membrane_execute(commands);
+            if (error_code == -1)
                 std::cout << "Unrecognized command!" << std::endl;
+            else if (error_code == -2)
+                std::cout << "Failed to execute command!" << std::endl;
         }
     }
 }
