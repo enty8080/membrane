@@ -14,21 +14,22 @@ void repeater()
 
             int error_code = membrane_execute(commands);
             if (error_code == -1)
-                std::cout << "Unrecognized command!" << std::endl;
+                console_log_error("Unrecognized command!");
             else if (error_code == -2)
-                std::cout << "Failed to execute command!" << std::endl;
+                console_log_error("Failed to execute command!");
         }
     }
 }
 
 int main(int argc, char *argv[])
 {
+    console_log("membrane _/(o_0)\_ v0.0.1");
     if (argc == 3) {
         int sock = membrane_connect(argv[1], argv[2]);
         if (sock >= 0)
             repeater();
         else
-            std::cout << "Failed to connect!" << std::endl;
+            console_log_error("Failed to connect!");
         close(sock);
     } else
         repeater();
