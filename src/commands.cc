@@ -21,7 +21,7 @@ void cmd_rmdir(std::vector<std::string> commands)
 void cmd_mkdir(std::vector<std::string> commands)
 {
     if (commands.size() > 1) {
-        if (mkdir(commands[1].c_str()) < 0)
+        if (mkdir(commands[1].c_str(), 777) < 0)
             console_log_error("Directory already exists!");
     } else
         console_log("Usage: mkdir <directory>");
