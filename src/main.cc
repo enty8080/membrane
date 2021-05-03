@@ -13,11 +13,8 @@ void repeater()
             if (commands[0] == "exit" || commands[0] == "quit")
                 break;
 
-            int error_code = membrane_execute(commands);
-            if (error_code == -1)
+            if (membrane_execute(commands) < 0)
                 console_log_error("Unrecognized command!");
-            else if (error_code == -2)
-                console_log_error("Failed to execute command!");
         }
     }
 }
