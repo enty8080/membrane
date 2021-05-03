@@ -15,7 +15,7 @@
 
 #include "console.hpp"
 
-int membrane_connect(char*, char*);
+int membrane_connect(std::string, int);
 std::vector<std::string> membrane_listen();
 int membrane_execute(std::vector<std::string>);
 
