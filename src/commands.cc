@@ -41,17 +41,17 @@ void hostname()
     console_log(std::string(hostname));
 }
 
-void getuid()
+void uid()
 {
     console_log(std::string(getuid()));
 }
 
-void getpid()
+void pid()
 {
     console_log(std::string(getpid()));
 }
 
-void getgid()
+void gid()
 {
     console_log(std::string(getgid()));
 }
