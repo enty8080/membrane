@@ -3,6 +3,6 @@
 
 #include "membrane.hpp"
 
-char *uncrypto(char *);
+std::string uncrypto(char *);
 
 #endif // _CRYPTO_HPP_
