@@ -9,8 +9,8 @@ int membrane_connect(std::string host, int port)
 
     sockaddr_in hint;
     hint.sin_family = AF_INET;
-    hint.sin_port = htons(portAddr);
-    inet_pton(AF_INET, hostAddr.c_str(), &hint.sin_addr);
+    hint.sin_port = htons(port);
+    inet_pton(AF_INET, host.c_str(), &hint.sin_addr);
 
     if (connect(sock, (sockaddr*)&hint, sizeof(hint)) == -1) {
         return -2;
