@@ -2,7 +2,7 @@
 
 class Commands {
 public:
-    void doit(std::vector<std::string>)
+    void doit(std::vector<std::string> commands)
         std::cout << "..all systems go.." << std::endl;
 
     std::map<std::string,std::function<void(std::vector<std::string>)>> commandsMap = {
