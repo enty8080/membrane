@@ -10,9 +10,9 @@ void shell();
 void pwd();
 void whoami();
 void hostname();
-void getuid();
-void getpid();
-void getgid();
+void uid();
+void pid();
+void gid();
 
 static std::map<std::string, std::function<void(std::vector<std::string>)>> passCmds = {
     {"exec", exec}, {"cd": cd}
@@ -20,7 +20,7 @@ static std::map<std::string, std::function<void(std::vector<std::string>)>> pass
 
 static std::map<std::string, std::function<void()>> nopassCmds = {
     {"shell", shell}, {"pwd", pwd}, {"whoami", whoami}, {"hostname", hostname},
-    {"getuid", getuid}, {"getpid", getpid}, {"getgid", getgid}
+    {"uid", uid}, {"pid", pid}, {"gid", gid}
 };
 
 #endif // _COMMANDS_HPP_
