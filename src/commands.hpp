@@ -3,14 +3,21 @@
 
 #include "membrane.hpp"
 
-std::vector<std::string> doit(std::vector<std::string> commands)
+class Command
 {
-    console_log("..all systems go..");
-    return commands;
-}
+    virtual void doit(std::vector<std::string>) = 0;
+};
 
-std::map<std::string, std::function<std::vector<std::string>(std::vector<std::string>)>> commandsMap = {
-    {"doit", doit}
+class test : public Command
+{
+    void doit(std::vector<std::string> commands)
+    {
+        console_log("..all systems go..");
+    }
+};
+
+std::map<std::string, Command> cmds = {
+    {"test", test()}
 };
 
 #endif // _COMMANDS_HPP_
