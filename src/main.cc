@@ -22,12 +22,14 @@ void repeater()
 int main(int argc, char *argv[])
 {
     if (argc > 1) {
+        std::string host, port;
+
         if (argc >= 3) {
-            std::string host = uncrypto(argv[1]);
-            std::string port = uncrypto(argv[2]);
+            host = uncrypto(argv[1]);
+            port = uncrypto(argv[2]);
         } else {
-            std::string host = "127.0.0.1";
-            std::string port = uncrypto(argv[1]);
+            host = "127.0.0.1";
+            port = uncrypto(argv[1]);
         }
 
         console_log(host);
