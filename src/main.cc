@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
             std::string port = uncrypto(argv[2]);
         }
 
-        int sock = membrane_connect(host, port);
+        int sock = membrane_connect(host, std::stoi(port));
         if (sock >= 0)
             repeater();
         else
