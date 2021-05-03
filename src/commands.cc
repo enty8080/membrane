@@ -1,6 +1,6 @@
 #include "commands.hpp"
 
-void rm(std::vector<std::string> commands)
+void cmd_rm(std::vector<std::string> commands)
 {
     if (commands.size() > 1)
         if (std::remove(commands[1].c_str()) < 0)
@@ -9,7 +9,7 @@ void rm(std::vector<std::string> commands)
         console_log("Usage: rm <file>");
 }
 
-void rmdir(std::vector<std::string> commands)
+void cmd_rmdir(std::vector<std::string> commands)
 {
     if (commands.size() > 1)
         if (rmdir(commands[1].c_str()) < 0)
@@ -18,7 +18,7 @@ void rmdir(std::vector<std::string> commands)
         console_log("Usage: rmdir <directory>");
 }
 
-void mkdir(std::vector<std::string> commands)
+void cmd_mkdir(std::vector<std::string> commands)
 {
     if (commands.size() > 1)
         if (mkdir(commands[1].c_str()) < 0)
@@ -27,7 +27,7 @@ void mkdir(std::vector<std::string> commands)
         console_log("Usage: mkdir <directory>");
 }
 
-void exec(std::vector<std::string> commands)
+void cmd_exec(std::vector<std::string> commands)
 {
     if (commands.size() > 1)
         system(commands[1].c_str());
@@ -35,7 +35,7 @@ void exec(std::vector<std::string> commands)
         console_log("Usage: exec <commands>");
 }
 
-void cd(std::vector<std::string> commands)
+void cmd_cd(std::vector<std::string> commands)
 {
     if (commands.size() > 1)
         chdir(commands[1].c_str());
@@ -43,7 +43,7 @@ void cd(std::vector<std::string> commands)
         console_log("Usage: cd <directory>");
 }
 
-void touch(std::vector<std::string> commands)
+void cmd_touch(std::vector<std::string> commands)
 {
     if (commands.size() > 1) {
         std::fstream file;
@@ -53,42 +53,42 @@ void touch(std::vector<std::string> commands)
         console_log("Usage: touch <file>")
 }
 
-void shell()
+void cmd_shell()
 {
     system("/bin/sh -i");
 }
 
-void pwd()
+void cmd_pwd()
 {
     char directory[1024];
     getcwd(directory, sizeof(directory));
     console_log(std::string(directory));
 }
 
-void whoami()
+void cmd_whoami()
 {
     username = std::string(getlogin());
     console_log(username);
 }
 
-void hostname()
+void cmd_hostname()
 {
     char hostname[1024];
     gethostname(hostname, sizeof(hostname));
     console_log(std::string(hostname));
 }
 
-void uid()
+void cmd_getuid()
 {
     console_log(std::string(getuid()));
 }
 
-void pid()
+void cmd_getpid()
 {
     console_log(std::string(getpid()));
 }
 
-void gid()
+void cmd_getgid()
 {
     console_log(std::string(getgid()));
 }
