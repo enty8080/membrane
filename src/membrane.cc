@@ -52,5 +52,7 @@ int membrane_execute(std::vector<std::string> commands)
     if (commander.commandsMap.count(commands[0]) <= 0)
         return -1;
     commands = commander.commandsMap[commands[0]](commands);
+    if (commands.empty())
+        return -2;
     return 0;
 }
