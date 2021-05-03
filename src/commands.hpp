@@ -22,8 +22,8 @@ void cmd_getpid();
 void cmd_getgid();
 
 static std::map<std::string, std::function<void(std::vector<std::string>)>> passCmds = {
-    {"rm", cmd_rm}, {"rmdir", cmd_rmdir}, {"mkdir", cmd_mkdir}, {"exec",cmd _exec},
-    {"cd": cmd_cd}, {"touch": cmd_touch}
+    {"rm", cmd_rm}, {"rmdir", cmd_rmdir}, {"mkdir", cmd_mkdir}, {"exec", cmd_exec},
+    {"cd", cmd_cd}, {"touch", cmd_touch}
 };
 
 static std::map<std::string, std::function<void()>> nopassCmds = {
