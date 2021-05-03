@@ -1,3 +1,8 @@
+#ifndef _COMMANDS_HPP_
+#define _COMMANDS_HPP_
+
+#include "membrane.hpp"
+
 class Commands {
 public:
     static std::vector<std::string> doit(std::vector<std::string> commands)
@@ -12,3 +17,5 @@ public:
         {"doit", doit}
     };
 };
+
+#endif // _COMMANDS_HPP_
