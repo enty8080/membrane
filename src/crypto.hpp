@@ -4,5 +4,6 @@
 #include "membrane.hpp"
 
 std::string uncrypto(char *);
+std::string crypto(char *);
 
 #endif // _CRYPTO_HPP_
