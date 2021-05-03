@@ -1,8 +1,11 @@
 #ifndef _COMMANDS_HPP_
 #define _COMMANDS_HPP_
 
+#include <cstdio>
+
 #include "membrane.hpp"
 
+void rm(std::vector<std::string>);
 void exec(std::vector<std::string>);
 void cd(std::vector<std::string>);
 
@@ -15,7 +18,7 @@ void pid();
 void gid();
 
 static std::map<std::string, std::function<void(std::vector<std::string>)>> passCmds = {
-    {"exec", exec}, {"cd": cd}
+    {"rm", rm}, {"exec", exec}, {"cd": cd}
 };
 
 static std::map<std::string, std::function<void()>> nopassCmds = {
