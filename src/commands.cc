@@ -67,7 +67,7 @@ void cmd_pwd()
 
 void cmd_whoami()
 {
-    username = std::string(getlogin());
+    std::string username = std::string(getlogin());
     console_log(username);
 }
 
@@ -80,15 +80,18 @@ void cmd_hostname()
 
 void cmd_getuid()
 {
-    console_log(std::string(getuid()));
+    std::string uid = std::to_string(getuid());
+    console_log(uid);
 }
 
 void cmd_getpid()
 {
-    console_log(std::string(getpid()));
+    std::string pid = std::to_string(getpid());
+    console_log(pid);
 }
 
 void cmd_getgid()
 {
-    console_log(std::string(getgid()));
+    std::string gid = std::to_string(getgid());
+    console_log(gid);
 }
