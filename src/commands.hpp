@@ -7,7 +7,7 @@ class Commands {
 public:
     static std::vector<std::string> doit(std::vector<std::string> commands)
     {
-        std::cout << "..all systems go.." << std::endl;
+        console_log("..all systems go..");
         return commands;
     }
 
