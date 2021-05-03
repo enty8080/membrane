@@ -25,9 +25,9 @@ int main(int argc, char *argv[])
         std::string data = uncrypto(argv[1]);
 
         std::string host = data.substr(0, data.find(":"));
-        int port = std::atoi(data.substr(1, data.find(":")));
+        std::string port = data.substr(1, data.find(":"));
 
-        int sock = membrane_connect(host, port);
+        int sock = membrane_connect(host, std::stoi(port));
         if (sock >= 0)
             repeater();
         else
