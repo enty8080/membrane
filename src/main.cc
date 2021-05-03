@@ -2,7 +2,6 @@
 
 void repeater()
 {
-    console_log_information("membrane ¯\\(o_0)/¯ v0.0.1");
     while (1) {
         console_log("membrane% ", 0);
 
@@ -32,14 +31,10 @@ int main(int argc, char *argv[])
             port = uncrypto(argv[1]);
         }
 
-        console_log(host);
-        console_log(port);
-
         int sock = membrane_connect(host, std::stoi(port));
         if (sock >= 0)
             repeater();
-        else
-            console_log_error("Failed to connect!");
+
         close(sock);
     } else
         repeater();
