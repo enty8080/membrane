@@ -13,8 +13,6 @@ void hostname();
 void getuid();
 void getpid();
 void getgid();
-void uptime();
-void procs();
 
 static std::map<std::string, std::function<void(std::vector<std::string>)>> passCmds = {
     {"exec", exec}, {"cd": cd}
@@ -22,8 +20,7 @@ static std::map<std::string, std::function<void(std::vector<std::string>)>> pass
 
 static std::map<std::string, std::function<void()>> nopassCmds = {
     {"shell", shell}, {"pwd", pwd}, {"whoami", whoami}, {"hostname", hostname},
-    {"getuid", getuid}, {"getpid", getpid}, {"getgid", getgid}, {"uptime", uptime},
-    {"procs", procs}, {""}
+    {"getuid", getuid}, {"getpid", getpid}, {"getgid", getgid}
 };
 
 #endif // _COMMANDS_HPP_
