@@ -3,6 +3,7 @@
 
 #include <cstdio>
 #include <fstream>
+#include <sys/stat.h>
 
 #include "membrane.hpp"
 
