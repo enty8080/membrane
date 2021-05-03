@@ -2,28 +2,28 @@
 
 void cmd_rm(std::vector<std::string> commands)
 {
-    if (commands.size() > 1)
+    if (commands.size() > 1) {
         if (std::remove(commands[1].c_str()) < 0)
             console_log_error("No such file!");
-    else
+    } else
         console_log("Usage: rm <file>");
 }
 
 void cmd_rmdir(std::vector<std::string> commands)
 {
-    if (commands.size() > 1)
+    if (commands.size() > 1) {
         if (rmdir(commands[1].c_str()) < 0)
             console_log_error("No such directory!");
-    else
+    } else
         console_log("Usage: rmdir <directory>");
 }
 
 void cmd_mkdir(std::vector<std::string> commands)
 {
-    if (commands.size() > 1)
+    if (commands.size() > 1) {
         if (mkdir(commands[1].c_str()) < 0)
             console_log_error("Directory already exists!");
-    else
+    } else
         console_log("Usage: mkdir <directory>");
 }
 
@@ -47,10 +47,10 @@ void cmd_touch(std::vector<std::string> commands)
 {
     if (commands.size() > 1) {
         std::fstream file;
-        file.open(commands[1].c_str(), ios::out);
+        file.open(commands[1].c_str(), std::ios::out);
         file.close();
     } else
-        console_log("Usage: touch <file>")
+        console_log("Usage: touch <file>");
 }
 
 void cmd_shell()
