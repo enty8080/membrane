@@ -3,21 +3,15 @@
 
 #include "membrane.hpp"
 
-class Command
-{
-    virtual void doit(std::vector<std::string>) = 0;
+void exec(std::vector<std::string>);
+void shell();
+
+std::map<std::string, std::function<void(std::vector<std::string>)>> passCmds = {
+    {"exec", exec}
 };
 
-class test : public Command
-{
-    void doit(std::vector<std::string> commands)
-    {
-        console_log("..all systems go..");
-    }
-};
-
-std::map<std::string, Command> cmds = {
-    {"test", test()}
+std::map<std::string, std::function<void()>> nopassCmds = {
+    {"shell", shell}
 };
 
 #endif // _COMMANDS_HPP_
