@@ -1,5 +1,15 @@
 #include "membrane.hpp"
 
+class Commands {
+public:
+    void doit(std::vector<std::string> commands)
+        std::cout << "..all systems go.." << std::endl;
+
+    std::map<std::string,std::function<void(std::vector<std::string>)>> commandsMap = {
+        {"doit", doit}
+    };
+};
+
 int membrane_connect(char *host, char *port)
 {
     int sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -48,9 +58,9 @@ std::vector<std::string> membrane_listen()
 
 int membrane_execute(std::vector<std::string> commands)
 {
-    if (commands[0] == "doit")
-        std::cout << "..all systems go.." << std::endl;
-    else
+    Commands commander;
+    if (commander.commandsMap.count(commands[0]) <= 0)
         return -1;
+    commander.commandsMap[commands[0]](commands);
     return 0;
 }
