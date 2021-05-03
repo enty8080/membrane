@@ -12,6 +12,8 @@
 #include <vector>
 #include <sstream>
 #include <iomanip>
+#include <functional>
+#include <map>
 
 int membrane_connect(char*, char*);
 std::vector<std::string> membrane_listen();
