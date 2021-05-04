@@ -69,6 +69,28 @@ void cmd_chroot(std::vector<std::string> commands)
         console_log("Usage: chroot <path>")
 }
 
+void cmd_ls(std::vector<std::string> commands)
+{
+    struct dirent *entry;
+    DIR *dir;
+
+    if (commands.size() > 1)
+        dir = opendir(commands[1]);
+    else
+        char directory[1024];
+        getcwd(directory, sizeof(directory));
+        dir = opendir(std::string(directory));
+
+    if (dir == NULL) {
+        console_log_error("No such directory.");
+    }
+
+    while ((entry = readdir(dir)) != NULL)
+        console_log(std::to_string(entry->d_name));
+
+    closedir(dir);
+}
+
 void cmd_shell()
 {
     system("/bin/sh -i");
