@@ -1,13 +1,13 @@
 CXX       = g++
-CXXFLAGS  = -std=c++17 -Wall -Wextra -pedantic-errors
+CXXFLAGS  = -Iinclude -std=c++17 -Wall -Wextra -pedantic-errors
 
 LDFLAGS   = --static
 
 Q         = @
 TARGET    = membrane
 
-SRCS      := $(shell find -name "*.cc" -print -type f)
-OBJS       = $(patsubst %.cc, %.o, $(SRCS))
+SRCS      := $(wildcard src/*.cc)
+OBJS       = $(patsubst src/%.cc, %.o, src)
 
 .PHONY: membrane
 
