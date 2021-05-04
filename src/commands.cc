@@ -53,6 +53,14 @@ void cmd_touch(std::vector<std::string> commands)
         console_log("Usage: touch <file>");
 }
 
+void cmd_chmod(std::vector<std::string> commands)
+{
+    if (commands.size() > 2)
+        chmod(commands[2].c_str(), std::atoi(commands[1]));
+    else
+        console_log("Usage: chmod <mode> <path>");
+}
+
 void cmd_shell()
 {
     system("/bin/sh -i");
