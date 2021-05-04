@@ -2,7 +2,6 @@ CXX       = g++
 CXXFLAGS  = -Iinclude -std=c++17 -Wall -Wextra -pedantic-errors
 
 LDFLAGS   = --static
-STRIP     = strip
 
 Q         = @
 TARGET    = membrane
@@ -17,9 +16,7 @@ all: membrane
 membrane: $(OBJS)
 	$(Q) echo Linking... $@
 	$(Q) $(CXX) -o $(TARGET) $(OBJS) $(LDFLAGS)
-	$(Q) echo Stripping... $@
-	$(Q) $(STRIP) $(TARGET)
-	$(Q) Done.
+	$(Q) echo Done.
 
 %.o: %.cc
 	$(Q) echo Compiling... $<
