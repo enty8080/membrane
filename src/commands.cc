@@ -175,7 +175,7 @@ void cmd_help()
             console_log("");
             console_log("  ", 0);
         }
-        console_log(key + " ", 0);
+        console_log(key + ", ", 0);
         counter++;
     }
 
@@ -184,7 +184,7 @@ void cmd_help()
             console_log("");
             console_log("  ", 0);
         }
-        console_log(key + " ", 0);
+        console_log(key + ", ", 0);
         counter++;
     }
 
