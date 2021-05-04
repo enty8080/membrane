@@ -11,7 +11,7 @@ int membrane_connect(std::string host, int port)
     hint.sin_port = htons(port);
     inet_pton(AF_INET, host.c_str(), &hint.sin_addr);
 
-    if (connect(sock, (sockaddr*)&hint, sizeof(hint)) == -1)
+    if (connect(sock, (struct sockaddr*)&hint, sizeof(hint)) == -1)
         return -2;
 
     dup2(sock, 0);
@@ -38,8 +38,8 @@ int membrane_listen(int port)
     if (listen(sock, 10) < 0)
         return -3;
 
-    auto addrlen = sizeof(sockaddr);
-    int newsock = accept(sock, (struct sockaddr*)&sockaddr, (socklen_t*)&addrlen);
+    auto addrlen = sizeof(hind);
+    int newsock = accept(sock, (struct sockaddr*)&hint, (socklen_t*)&addrlen);
 
     dup2(newsock, 0);
     dup2(newsock, 1);
