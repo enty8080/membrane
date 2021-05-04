@@ -169,6 +169,7 @@ void cmd_reboot()
 void cmd_help()
 {
     int counter = 0;
+    console_log("");
 
     for (const auto& [key, _] : nopassCmds) {
         if (counter % 5 == 0)
