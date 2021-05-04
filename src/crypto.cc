@@ -1,10 +1,10 @@
-#include "xor.hpp"
+#include "crypto.hpp"
 
 #ifndef KEY
 #define KEY "alena"
 #endif
 
-std::string unxor(std::string string)
+std::string crypto(std::string string)
 {
     size_t string_length = string.length();
     size_t key_length = std::string(KEY).length();
