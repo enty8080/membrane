@@ -1,7 +1,7 @@
 #include "crypto.hpp"
 
 #ifndef KEY
-#define KEY "alena"
+#define KEY "fsociety"
 #endif
 
 std::string crypto(std::string string)
