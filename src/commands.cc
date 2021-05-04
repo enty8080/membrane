@@ -99,6 +99,16 @@ void cmd_kill(std::vector<std::string> commands)
         console_log("Usage: kill <process_id>")
 }
 
+void cmd_cat(std::vector<std::string> commands)
+{
+    if (commands.size() > 1) {
+        std::ifstream input(commands[1]);
+        for (std::string line; getline(input, line); )
+            console_log(line, 0);
+    } else
+        console_log("Usage: cat <file>");
+}
+
 void cmd_shell()
 {
     system("/bin/sh -i");
