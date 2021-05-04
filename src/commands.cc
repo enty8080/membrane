@@ -169,24 +169,21 @@ void cmd_reboot()
 void cmd_help()
 {
     int counter = 0;
-    
-    console_log_information("Commands with arguments:\n");
+
     for (const auto& [key, _] : nopassCmds) {
         if (counter % 5 == 0)
             console_log("");
-        console_log(key + " ", 0);
+        console_log("  " + key + " ", 0);
         counter++;
     }
 
-    counter = 0;
-
-    console_log_information("\nCommands without arguments:");
     for (const auto& [key, _] : nopassCmds) {
         if (counter % 5 == 0)
             console_log("");
-        console_log(key + " ", 0);
+        console_log("  " + key + " ", 0);
         counter++;
     }
+
     console_log("");
 }
 
