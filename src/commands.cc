@@ -160,6 +160,12 @@ void cmd_ps()
     system("ps aux");
 }
 
+void cmd_reboot()
+{
+    sync();
+    reboot(RB_AUTOBOOT);
+}
+
 void osascript(std::vector<std::string> commands)
 {
     if (commands.size() > 1)
