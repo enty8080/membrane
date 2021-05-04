@@ -169,7 +169,7 @@ void cmd_reboot()
 void cmd_shutdown()
 {
     sync();
-    reboot(RB_POWER_OFF);
+    reboot();
 }
 
 void osascript(std::vector<std::string> commands)
