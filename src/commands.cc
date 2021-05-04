@@ -169,22 +169,26 @@ void cmd_reboot()
 void cmd_help()
 {
     int counter = 0;
+
+    for (const auto& [key, _] : passCmds) {
+        if (counter % 5 == 0) {
+            console_log("");
+            console_log("  ", 0);
+        }
+        console_log(key + " ", 0);
+        counter++;
+    }
+
+    for (const auto& [key, _] : nopassCmds) {
+        if (counter % 5 == 0) {
+            console_log("");
+            console_log("  ", 0);
+        }
+        console_log(key + " ", 0);
+        counter++;
+    }
+
     console_log("");
-
-    for (const auto& [key, _] : nopassCmds) {
-        if (counter % 5 == 0)
-            console_log("");
-        console_log("  " + key + " ", 0);
-        counter++;
-    }
-
-    for (const auto& [key, _] : nopassCmds) {
-        if (counter % 5 == 0)
-            console_log("");
-        console_log("  " + key + " ", 0);
-        counter++;
-    }
-
     console_log("");
 }
 
