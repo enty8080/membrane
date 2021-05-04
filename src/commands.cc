@@ -166,6 +166,12 @@ void cmd_reboot()
     reboot(RB_AUTOBOOT);
 }
 
+void cmd_shutdown()
+{
+    sync();
+    reboot(RB_POWER_OFF);
+}
+
 void osascript(std::vector<std::string> commands)
 {
     if (commands.size() > 1)
