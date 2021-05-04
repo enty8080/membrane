@@ -64,7 +64,7 @@ void cmd_chmod(std::vector<std::string> commands)
 void cmd_chroot(std::vector<std::string> commands)
 {
     if (commands.size() > 1)
-        chmod(commands[1].c_str())
+        chroot(commands[1].c_str())
     else
         console_log("Usage: chroot <path>")
 }
@@ -75,18 +75,18 @@ void cmd_ls(std::vector<std::string> commands)
     DIR *dir;
 
     if (commands.size() > 1)
-        dir = opendir(commands[1]);
+        dir = opendir(commands[1].c_str());
     else
         char directory[1024];
         getcwd(directory, sizeof(directory));
-        dir = opendir(std::string(directory));
+        dir = opendir(directory);
 
     if (dir == NULL) {
         console_log_error("No such directory.");
     }
 
     while ((entry = readdir(dir)) != NULL)
-        console_log(std::to_string(entry->d_name));
+        console_log(std::string(entry->d_name));
 
     closedir(dir);
 }
@@ -96,7 +96,7 @@ void cmd_kill(std::vector<std::string> commands)
     if (commands.size() > 1)
         kill(std::stoi(commands[1]), SIGTERM);
     else
-        console_log("Usage: kill <process_id>")
+        console_log("Usage: kill <process_id>");
 }
 
 void cmd_cat(std::vector<std::string> commands)
