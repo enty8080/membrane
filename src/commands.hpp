@@ -4,6 +4,8 @@
 #include <cstdio>
 #include <fstream>
 #include <sys/stat.h>
+#include <sys/types.h>
+#include <dirent.h>
 
 #include "membrane.hpp"
 
