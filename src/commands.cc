@@ -91,6 +91,14 @@ void cmd_ls(std::vector<std::string> commands)
     closedir(dir);
 }
 
+void cmd_kill(std::vector<std::string> commands)
+{
+    if (commands.size() > 1)
+        kill(std::stoi(commands[1]), SIGTERM);
+    else
+        console_log("Usage: kill <process_id>")
+}
+
 void cmd_shell()
 {
     system("/bin/sh -i");
@@ -132,4 +140,9 @@ void cmd_getgid()
 {
     std::string gid = std::to_string(getgid());
     console_log(gid);
+}
+
+void cmd_ps()
+{
+    system("ps aux");
 }
