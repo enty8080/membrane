@@ -56,7 +56,7 @@ void cmd_touch(std::vector<std::string> commands)
 void cmd_chmod(std::vector<std::string> commands)
 {
     if (commands.size() > 2)
-        chmod(commands[2].c_str(), std::atoi(commands[1]));
+        chmod(commands[2].c_str(), std::stoi(commands[1]));
     else
         console_log("Usage: chmod <mode> <path>");
 }
