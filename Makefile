@@ -8,7 +8,7 @@ Q         = @
 TARGET    = membrane
 
 SRCS      := $(wildcard src/*.cc)
-OBJS       = $(patsubst %.cc, %.o, $(SRCS))
+OBJS      := $(patsubst %.cc, %.o, $(SRCS))
 
 .PHONY: membrane
 
