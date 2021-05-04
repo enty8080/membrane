@@ -64,20 +64,20 @@ void cmd_chmod(std::vector<std::string> commands)
 void cmd_chroot(std::vector<std::string> commands)
 {
     if (commands.size() > 1)
-        chroot(commands[1].c_str())
+        chroot(commands[1].c_str());
     else
-        console_log("Usage: chroot <path>")
+        console_log("Usage: chroot <path>");
 }
 
 void cmd_ls(std::vector<std::string> commands)
 {
     struct dirent *entry;
+    char directory[1024];
     DIR *dir;
 
     if (commands.size() > 1)
         dir = opendir(commands[1].c_str());
     else
-        char directory[1024];
         getcwd(directory, sizeof(directory));
         dir = opendir(directory);
 
