@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD 13)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # set C++ flags
-set(CMAKE_CXX_FLAGS "-Wall -Wextra --static")
+set(CMAKE_CXX_FLAGS "-Wall -Wextra")
 
 # get all C++ files
 file(GLOB_RECURSE SOURCES *.cc)
