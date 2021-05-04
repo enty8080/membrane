@@ -61,6 +61,14 @@ void cmd_chmod(std::vector<std::string> commands)
         console_log("Usage: chmod <mode> <path>");
 }
 
+void cmd_chroot(std::vector<std::string> commands)
+{
+    if (commands.size() > 1)
+        chmod(commands[1].c_str())
+    else
+        console_log("Usage: chroot <path>")
+}
+
 void cmd_shell()
 {
     system("/bin/sh -i");
