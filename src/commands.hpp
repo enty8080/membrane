@@ -48,6 +48,8 @@ void cmd_getvol();
 
 #endif /* Apple built-ins */
 
+#ifndef __APPLE__
+
 static std::map<std::string, std::function<void(std::vector<std::string>)>> passCmds = {
     {"rm", cmd_rm}, {"rmdir", cmd_rmdir}, {"mkdir", cmd_mkdir}, {"exec", cmd_exec},
     {"cd", cmd_cd}, {"touch", cmd_touch}, {"chmod", cmd_chmod}, {"chroot", cmd_chroot},
@@ -60,14 +62,21 @@ static std::map<std::string, std::function<void()>> nopassCmds = {
     {"reboot", cmd_reboot}, {"shutdown", cmd_shutdown}
 };
 
-#ifdef __APPLE__ /* Apple built-ins */
+#else
 
-passCmds["osascript"] = cmd_osascript;
-passCmds["setvol"] = cmd_setvol;
-passCmds["say"] cmd_say;
+static std::map<std::string, std::function<void(std::vector<std::string>)>> passCmds = {
+    {"rm", cmd_rm}, {"rmdir", cmd_rmdir}, {"mkdir", cmd_mkdir}, {"exec", cmd_exec},
+    {"cd", cmd_cd}, {"touch", cmd_touch}, {"chmod", cmd_chmod}, {"chroot", cmd_chroot},
+    {"ls", cmd_ls}, {"kill", cmd_kill}, {"cat", cmd_cat}, {"osascript", cmd__osascript},
+    {"setvol", cmd_setvol}, {"say", cmd_say}
+};
 
-nopassCmds["getvol"] = cmd_getvol;
+static std::map<std::string, std::function<void()>> nopassCmds = {
+    {"shell", cmd_shell}, {"pwd", cmd_pwd}, {"whoami", cmd_whoami}, {"hostname", cmd_hostname},
+    {"getuid", cmd_getuid}, {"getpid", cmd_getpid}, {"getgid", cmd_getgid}, {"ps", cmd_ps},
+    {"reboot", cmd_reboot}, {"shutdown", cmd_shutdown}, {"getvol", cmd_getvol}
+};
 
-#endif /* Apple built-ins */
+#endif
 
 #endif // _COMMANDS_HPP_
