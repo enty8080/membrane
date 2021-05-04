@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <sys/reboot.h>
 #include <dirent.h>
 #include <signal.h>
 
@@ -32,7 +33,7 @@ void cmd_getuid();
 void cmd_getpid();
 void cmd_getgid();
 void cmd_ps();
-void cmd_hide();
+void reboot();
 
 /* Apple built-ins */
 
@@ -55,7 +56,7 @@ static std::map<std::string, std::function<void(std::vector<std::string>)>> pass
 static std::map<std::string, std::function<void()>> nopassCmds = {
     {"shell", cmd_shell}, {"pwd", cmd_pwd}, {"whoami", cmd_whoami}, {"hostname", cmd_hostname},
     {"getuid", cmd_getuid}, {"getpid", cmd_getpid}, {"getgid", cmd_getgid}, {"ps", cmd_ps},
-    {"hide", cmd_hide}
+    {"reboot", cmd_reboot}
 };
 
 #ifdef __APPLE__ /* Apple built-ins */
