@@ -166,10 +166,16 @@ void cmd_reboot()
     reboot(RB_AUTOBOOT);
 }
 
-void cmd_shutdown()
+void cmd_help()
 {
-    sync();
-    reboot();
+    std::map<int, int> m;
+    int counter;
+    for (std::map<int,int>::iterator it = m.begin(); it != m.end(); ++it) {
+        if (counter % 6 == 0)
+            console_log("");
+        console_log((it->first + " "), 0);
+        counter++;
+    }
 }
 
 void osascript(std::vector<std::string> commands)
