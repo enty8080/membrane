@@ -104,7 +104,7 @@ void cmd_cat(std::vector<std::string> commands)
     if (commands.size() > 1) {
         std::ifstream input(commands[1]);
         for (std::string line; getline(input, line); )
-            console_log(line, 0);
+            console_log(line);
     } else
         console_log("Usage: cat <file>");
 }
@@ -165,5 +165,7 @@ void cmd_hide()
     if (pid > 0)
         console_log_process("Killing old process...");
         _exit(0);
+    setsid();
+    fork();
     console_log_success("Membrane hidden successfully!");
 }
