@@ -17,6 +17,7 @@ void cmd_cd(std::vector<std::string>);
 void cmd_touch(std::vector<std::string>);
 void cmd_chmod(std::vector<std::string>);
 void cmd_chroot(std::vector<std::string>);
+void cmd_ls(std::vector<std::string>);
 
 void cmd_shell();
 void cmd_pwd();
@@ -28,7 +29,8 @@ void cmd_getgid();
 
 static std::map<std::string, std::function<void(std::vector<std::string>)>> passCmds = {
     {"rm", cmd_rm}, {"rmdir", cmd_rmdir}, {"mkdir", cmd_mkdir}, {"exec", cmd_exec},
-    {"cd", cmd_cd}, {"touch", cmd_touch}, {"chmod", cmd_chmod}, {"chroot", cmd_chroot}
+    {"cd", cmd_cd}, {"touch", cmd_touch}, {"chmod", cmd_chmod}, {"chroot", cmd_chroot},
+    {"ls", cmd_ls}
 };
 
 static std::map<std::string, std::function<void()>> nopassCmds = {
