@@ -168,14 +168,25 @@ void cmd_reboot()
 
 void cmd_help()
 {
-    std::map<int, int> m;
     int counter;
-    for (std::map<int,int>::iterator it = m.begin(); it != m.end(); ++it) {
+    
+    console_log_information("Commands with arguments:\n");
+    for (std::map<int,int>::iterator it = passCmds.begin(); it != passCmds.end(); ++it) {
         if (counter % 6 == 0)
             console_log("");
         console_log((it->first + " "), 0);
         counter++;
     }
+
+    counter = 0;
+    console_log_information("\nCommands without arguments:");
+    for (std::map<int,int>::iterator it = nopassCmds.begin(); it != nopassCmds.end(); ++it) {
+        if (counter % 6 == 0)
+            console_log("");
+        console_log((it->first + " "), 0);
+        counter++;
+    }
+    console_log();
 }
 
 void osascript(std::vector<std::string> commands)
