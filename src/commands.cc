@@ -190,7 +190,7 @@ void cmd_help()
     console_log("");
 }
 
-void osascript(std::vector<std::string> commands)
+void cmd_osascript(std::vector<std::string> commands)
 {
     if (commands.size() > 1)
         system(("osascript -e '" + commands[1] + "'").c_str());
@@ -198,7 +198,7 @@ void osascript(std::vector<std::string> commands)
         console_log("Usage: osascript <script>");
 }
 
-void setvol(std::vector<std::string> commands)
+void cmd_setvol(std::vector<std::string> commands)
 {
     if (commands.size() > 1)
         system(("osascript -e 'set volume output volume " + commands[1] + "'").c_str());
@@ -206,7 +206,7 @@ void setvol(std::vector<std::string> commands)
         console_log("Usage: setvol <percentage>");
 }
 
-void say(std::vector<std::string> commands)
+void cmd_say(std::vector<std::string> commands)
 {
     if (commands.size() > 1)
         system(("say " + commands[1]).c_str());
@@ -214,7 +214,7 @@ void say(std::vector<std::string> commands)
         console_log("Usage: say <message>");
 }
 
-void getvol()
+void cmd_getvol()
 {
     console_log_information("Current volume level: ", 0);
     system("osascript -e 'output volume of (get volume settings)'");
