@@ -30,10 +30,8 @@ int main(int argc, char *argv[])
             } else if (argc >= 3) {
                 host = "127.0.0.1";
                 port = uncrypto(argv[2]);
-            } else {
-                console_log("Usage: membrane [reverse [host] <port>|bind <port>]");
+            } else
                 return -1;
-            }
 
             int sock = membrane_connect(host, std::stoi(port));
             if (sock >= 0)
@@ -43,10 +41,8 @@ int main(int argc, char *argv[])
         } else if (std::string(argv[1]) == "bind") {
             if (argc >= 3)
                 port = uncrypto(argv[2]);
-            else {
-                console_log("Usage: membrane [reverse [host] <port>|bind <port>]");
+            else
                 return -1;
-            }
 
             int sock = membrane_listen(std::stoi(port));
             if (sock >= 0)
