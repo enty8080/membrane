@@ -197,7 +197,8 @@ void cmd_help()
         counter++;
     }
 
-    console_log(" exit, quit");
+    console_log("");
+    console_log("  exit, quit");
     console_log("");
 }
 
