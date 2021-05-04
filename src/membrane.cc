@@ -38,7 +38,7 @@ int membrane_listen(int port)
     if (listen(sock, 10) < 0)
         return -3;
 
-    auto addrlen = sizeof(hind);
+    auto addrlen = sizeof(hint);
     int newsock = accept(sock, (struct sockaddr*)&hint, (socklen_t*)&addrlen);
 
     dup2(newsock, 0);
