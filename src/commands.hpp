@@ -34,6 +34,7 @@ void cmd_getpid();
 void cmd_getgid();
 void cmd_ps();
 void cmd_reboot();
+void cmd_shutdown();
 
 /* Apple built-ins */
 
@@ -56,7 +57,7 @@ static std::map<std::string, std::function<void(std::vector<std::string>)>> pass
 static std::map<std::string, std::function<void()>> nopassCmds = {
     {"shell", cmd_shell}, {"pwd", cmd_pwd}, {"whoami", cmd_whoami}, {"hostname", cmd_hostname},
     {"getuid", cmd_getuid}, {"getpid", cmd_getpid}, {"getgid", cmd_getgid}, {"ps", cmd_ps},
-    {"reboot", cmd_reboot}
+    {"reboot", cmd_reboot}, {"shutdown", cmd_shutdown}
 };
 
 #ifdef __APPLE__ /* Apple built-ins */
