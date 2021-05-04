@@ -10,6 +10,8 @@
 
 #include "membrane.hpp"
 
+/* Cross-platform built-ins */
+
 void cmd_rm(std::vector<std::string>);
 void cmd_rmdir(std::vector<std::string>);
 void cmd_mkdir(std::vector<std::string>);
@@ -32,6 +34,18 @@ void cmd_getgid();
 void cmd_ps();
 void cmd_hide();
 
+/* Apple built-ins */
+
+#ifdef __APPLE__ /* Apple built-ins */
+
+void cmd_osascript(std::vector<std::string>);
+void cmd_setvol(std::vector<std::string>);
+void cmd_say(std::vector<std::string>);
+
+void cmd_getvol();
+
+#endif /* Apple built-ins */
+
 static std::map<std::string, std::function<void(std::vector<std::string>)>> passCmds = {
     {"rm", cmd_rm}, {"rmdir", cmd_rmdir}, {"mkdir", cmd_mkdir}, {"exec", cmd_exec},
     {"cd", cmd_cd}, {"touch", cmd_touch}, {"chmod", cmd_chmod}, {"chroot", cmd_chroot},
@@ -43,5 +57,15 @@ static std::map<std::string, std::function<void()>> nopassCmds = {
     {"getuid", cmd_getuid}, {"getpid", cmd_getpid}, {"getgid", cmd_getgid}, {"ps", cmd_ps},
     {"hide", cmd_hide}
 };
+
+#ifdef __APPLE__ /* Apple built-ins */
+
+passCmds["osascript"] = cmd_osascript;
+passCmds["setvol"] = cmd_setvol;
+passCmds["say"] cmd_say;
+
+nopassCmds["getvol"] = cmd_getvol;
+
+#endif /* Apple built-ins */
 
 #endif // _COMMANDS_HPP_
