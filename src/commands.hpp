@@ -33,7 +33,7 @@ void cmd_getuid();
 void cmd_getpid();
 void cmd_getgid();
 void cmd_ps();
-void reboot();
+void cmd_reboot();
 
 /* Apple built-ins */
 
