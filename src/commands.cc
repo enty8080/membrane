@@ -156,3 +156,14 @@ void cmd_ps()
 {
     system("ps aux");
 }
+
+void cmd_hide()
+{
+    console_log_process("Trying to hide membrane...");
+    pid_t pid;
+    pid = fork();
+    if (pid > 0)
+        console_log_process("Killing old process...");
+        _exit(0);
+    console_log_success("Membrane hidden successfully!");
+}
