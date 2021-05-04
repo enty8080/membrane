@@ -72,14 +72,23 @@ void cmd_chroot(std::vector<std::string> commands)
 void cmd_ls(std::vector<std::string> commands)
 {
     struct dirent *entry;
-    char directory[1024];
-    DIR *dir;
 
-    if (commands.size() > 1)
-        dir = opendir(commands[1].c_str());
-    else
-        getcwd(directory, sizeof(directory));
-        dir = opendir(directory);
+    if (commands.size() > 1) {
+        DIR *dir = opendir(commands[1].c_str());
+        if (dir == NULL) {
+            console_log_error("No such directory.");
+        }
+
+        while ((entry = readdir(dir)) != NULL)
+            console_log(std::string(entry->d_name));
+
+        closedir(dir);
+        return;
+    }
+
+    char directory[1024];
+    getcwd(directory, sizeof(directory));
+    DIR *dir = opendir(directory);
 
     if (dir == NULL) {
         console_log_error("No such directory.");
@@ -188,7 +197,7 @@ void cmd_help()
         counter++;
     }
 
-    console_log("");
+    console_log(" exit, quit");
     console_log("");
 }
 
@@ -218,6 +227,5 @@ void cmd_say(std::vector<std::string> commands)
 
 void cmd_getvol()
 {
-    console_log_information("Current volume level: ", 0);
     system("osascript -e 'output volume of (get volume settings)'");
 }
