@@ -9,7 +9,7 @@ void repeater()
         if (commands.empty())
             continue;
         else {
-            if (commands[0] == "exit" || commands[0] == "quit")
+            if (commands[0] == "exit")
                 break;
 
             if (membrane_execute(commands) < 0)
