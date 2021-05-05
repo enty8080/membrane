@@ -17,3 +17,10 @@ std::string exec(std::string command) {
     pclose(pipe);
     return result;
 }
+
+void erase(std::string& mainStr, const std::string& toErase)
+{
+    size_t pos = std::string::npos;
+    while ((pos  = mainStr.find(toErase)) != std::string::npos)
+        mainStr.erase(pos, toErase.length());
+}
