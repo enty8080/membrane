@@ -16,7 +16,7 @@ int membrane_connect(std::string host, int port)
 
     dup2(sock, 0);
     dup2(sock, 1);
-    dup2(sock, 3);
+    dup2(sock, 2);
 
     return sock;
 }
@@ -43,7 +43,7 @@ int membrane_listen(int port)
 
     dup2(newsock, 0);
     dup2(newsock, 1);
-    dup2(newsock, 3);
+    dup2(newsock, 2);
 
     return newsock;
 }
