@@ -1,4 +1,5 @@
 #include "commands.hpp"
+#include "utils.hpp"
 
 void cmd_rm(std::vector<std::string> commands)
 {
