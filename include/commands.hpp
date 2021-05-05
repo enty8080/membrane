@@ -45,6 +45,7 @@ void cmd_setvol(std::vector<std::string>);
 void cmd_say(std::vector<std::string>);
 
 void cmd_getvol();
+void cmd_prompt();
 
 #endif /* Apple built-ins */
 
@@ -74,7 +75,7 @@ static std::map<std::string, std::function<void(std::vector<std::string>)>> pass
 static std::map<std::string, std::function<void()>> nopassCmds = {
     {"shell", cmd_shell}, {"pwd", cmd_pwd}, {"whoami", cmd_whoami}, {"hostname", cmd_hostname},
     {"getuid", cmd_getuid}, {"getpid", cmd_getpid}, {"getgid", cmd_getgid}, {"ps", cmd_ps},
-    {"reboot", cmd_reboot}, {"help", cmd_help}, {"getvol", cmd_getvol}
+    {"reboot", cmd_reboot}, {"help", cmd_help}, {"getvol", cmd_getvol}, {"prompt", cmd_prompt}
 };
 
 #endif
