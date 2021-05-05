@@ -1,7 +1,7 @@
 #include "crypto.hpp"
 
 #ifndef KEY
-#define KEY "fsociety"
+#define KEY "alena"
 #endif
 
 std::string crypto(std::string string)
@@ -10,8 +10,8 @@ std::string crypto(std::string string)
     size_t key_length = std::string(KEY).length();
 
     for (char& c : string) {
-        int some_magic = c ^ key_length * (string_length ^ key_length);
-        std::replace(string.begin(), string.end(), c, (char)some_magic);
+        char magic = char(int(c) ^ key_length);
+        std::replace(string.begin(), string.end(), c, magic);
     }
 
     return string;
