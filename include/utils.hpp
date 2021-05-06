@@ -6,5 +6,6 @@
 #include <string>
 
 std::string exec(std::string);
+void erase(std::string&, std::string&);
 
 #endif // _UTILS_HPP_
