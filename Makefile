@@ -9,16 +9,16 @@ else
 endif
 
 Q         = @
-TARGET    = membrane
+TARGET    = membrane.bin
 
 SRCS      := $(wildcard src/*.cc)
 OBJS      := $(patsubst %.cc, %.o, $(SRCS))
 
-.PHONY: membrane
+.PHONY: membrane.bin
 
-all: membrane
+all: membrane.bin
 
-membrane: $(OBJS)
+membrane.bin: $(OBJS)
 	$(Q) echo Linking... $@
 	$(Q) $(CXX) -o $(TARGET) $(OBJS) $(LDFLAGS)
 	$(Q) echo Done.
