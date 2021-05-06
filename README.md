@@ -11,7 +11,7 @@ This is an implementation of a native-code HatSploit membrane, designed for port
 ## Build
 
 ```sh
-make membrane
+make
 ```
 
 **NOTE:** *If you want to cross-compile it for custom targets, you should use custom toolchains, just set `CXX` to path to your cross-compiler*
