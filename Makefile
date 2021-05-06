@@ -1,7 +1,12 @@
 CXX       = g++
 CXXFLAGS  = -Iinclude -std=c++17 -Wall -Wextra -pedantic-errors
 
-LDFLAGS   = --static
+UNAME := $(shell uname -s)
+ifeq ($(UNAME), Linux)
+	LDFLAGS = --static
+else
+	LDFLAGS =
+endif
 
 Q         = @
 TARGET    = membrane
