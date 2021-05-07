@@ -75,6 +75,6 @@ int main(int argc, char *argv[])
             close(sock);
         }
     } else
-        repeater();
+        return -1;
     return 0;
 }
