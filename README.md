@@ -14,8 +14,6 @@ This is an implementation of a native-code HatSploit membrane for unix-like syst
 make
 ```
 
-**NOTE:** *If you want to cross-compile it for custom targets, you should use custom toolchains, just set `CXX` to path to your cross-compiler*
-
 ## Other tools
 
 <p>
