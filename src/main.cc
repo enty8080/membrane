@@ -27,7 +27,7 @@
 void repeater()
 {
     while (1) {
-        console_log("membrane% ", 0);
+        console_log("membrane > ", 0);
 
         std::vector<std::string> commands = membrane_read();
         if (commands.empty())
