@@ -16,18 +16,6 @@ make
 
 **NOTE:** *If you want to cross-compile it for custom targets, you should use custom toolchains, just set `CXX` to path to your cross-compiler*
 
-For example set this:
-
-```Makefile
-CXX = g++
-```
-
-To this:
-
-```Makefile
-CXX = ./my-toolchain/mipsle/gcc
-```
-
 ## Other tools
 
 <p>
