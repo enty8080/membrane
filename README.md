@@ -1,5 +1,17 @@
 # membrane >
 
+<p>
+    <a href="https://entysec.netlify.app">
+        <img src="https://img.shields.io/badge/developer-EntySec-3572a5.svg">
+    </a>
+    <a href="https://github.com/EntySec/membrane">
+        <img src="https://img.shields.io/badge/language-C++-f34c79.svg">
+    </a>
+    <a href="https://github.com/EntySec/membrane/stargazers">
+        <img src="https://img.shields.io/github/stars/EntySec/membrane?color=yellow">
+    </a>
+</p>
+
 This is an implementation of a native-code HatSploit membrane for unix-like systems, designed for portability, embeddability, and low resource utilization.
 
 ## Features
